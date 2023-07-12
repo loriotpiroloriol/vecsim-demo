@@ -19,23 +19,18 @@ Each row in the CSV file correspond to a product in the original dataset.
     ```
     git lfs install
     ```
-* Docker
-* [Docker Compose](https://docs.docker.com/compose/install/)
 
 # Clone the Repo 
 ```
-git clone https://github.com/RedisAI/vecsim-demo.git
+git clone https://github.com/loriotpiroloriol/vecsim-demo.git
 ```
-# Fire Up the Docker containers
-Use docker-compose to start up 2 containers:
-* vesim: A redis container with Vector Similarity Search (VSS) on port 6379
-* jupyter: A python notebook server on port 8888 pre-loaded with 4 notebooks
-    * 2 notebooks illustrating how to perform Visual Similarity with Redis VSS
-    * 2 notebooks illustrating how to perform semantic Similarity with Redis VSS
+
+# Fire Up Redis Stack
+```bash
+docker run -d --rm --name redis -p 6379:6379 redis/redis-stack-server:latest
 ```
-cd vecsim-demo
-docker-compose up
-```
+
+
 **NOTE**: The first time you run the above command, it will take 5-10 minutes (depending on your network)
 The jupyter container downloads a 3.25GB tar file with product images from the ["Amazon Berkeley Objects Dataset"](https://amazon-berkeley-objects.s3.amazonaws.com/index.html)
 
